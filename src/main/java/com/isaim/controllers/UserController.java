@@ -74,6 +74,22 @@ public class UserController {
 		return user;
 	}
 
+	// CONSULTA
+	@RequestMapping("/por-id")
+	public User porId(long id) {
+		String userId = "";
+		User user = null;
+
+		try {
+			user = userDao.findById(id);
+			userId = String.valueOf(user.getId());
+		}
+		catch (Exception e) {
+			return user;
+		}
+		return user;
+	}
+
 	// CAMBIOS
 	@RequestMapping("/cambios")
 	//@ResponseBody
